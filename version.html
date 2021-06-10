@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喜羊羊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav {
+            margin: 0 auto;
+            width: 1500px;
+            height: 80px;
+            background: rgb(22, 22, 22);
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .nav img {
+            width: 180px;
+        }
+        
+        .nav_first {
+            line-height: 80px;
+            width: 350px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .nav_first a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        .nav_first a:hover {
+            text-decoration: none;
+            color: rgb(247, 243, 18);
+            font-size: 20px;
+        }
+        
+        .nav_second {
+            display: flex;
+            justify-content: space-around;
+            width: 500px;
+        }
+        
+        .nav_second div {
+            margin-top: 30px;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            background: url("./imgs/logos.png") no-repeat -228px -24px;
+        }
+        
+        .nav_second a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        
+        .nav_second a:hover {
+            text-decoration: none;
+            color: rgb(247, 243, 18);
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        
+        .container {
+            height: 80px;
+            width: 300px;
+        }
+        
+        .parent {
+            position: relative;
+        }
+        
+        .search {
+            width: 270px;
+            height: 40px;
+            border-radius: 18px;
+            padding-left: 20px;
+            margin-top: 20px;
+            position: absolute;
+            background: rgb(51, 50, 50);
+            border: 1px solid black;
+        }
+        
+        .btn {
+            height: 25px;
+            width: 30px;
+            position: absolute;
+            background: url("./imgs/search_picture.png") no-repeat -150px 0px;
+            top: 30px;
+            left: 250px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .back {
+            width: 1500px;
+            margin: 0 auto;
+            background-image: url("./imgs/pic2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .music_body {
+            position: relative;
+            width: 1500px;
+            height: 802px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .left_body {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 20px;
+        }
+        
+        .music_body .title {
+            position: absolute;
+            top: 80px;
+            left: 260px;
+            width: 300px;
+            height: 80px;
+            color: black;
+            font-size: 35px;
+        }
+        
+        .music_body .source_first {
+            position: absolute;
+            top: 180px;
+            left: 230px;
+            width: 370px;
+            height: 30px;
+            color: black;
+            font-size: 15px;
+        }
+        
+        .music_body .source_first a {
+            text-decoration: none;
+            color: rgb(224, 221, 12);
+            font-size: 15px;
+            margin-right: 10px;
+        }
+        
+        .music_body .source_second {
+            position: absolute;
+            top: 220px;
+            left: 250px;
+            width: 300px;
+            height: 30px;
+            color: black;
+            font-size: 15px;
+        }
+        
+        .line {
+            width: 500px;
+            height: 2px;
+            border-bottom: 1px solid rgb(22, 22, 22);
+            position: absolute;
+            top: 260px;
+            left: 160px;
+        }
+        
+        .lyric_out {
+            width: 400px;
+            height: 500px;
+            overflow-y: scroll;
+            position: absolute;
+            left: 200px;
+            top: 280px;
+        }
+        
+        .lyric {
+            width: 380px;
+            height: 1000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .right_body {
+            width: 650px;
+            height: 800px;
+            position: absolute;
+            left: 820px;
+        }
+        
+        .pic_border {
+            position: absolute;
+            width: 410px;
+            height: 410px;
+            top: 80px;
+            left: 100px;
+            border-radius: 50%;
+            border: 1px solid rgb(122, 122, 122);
+        }
+        
+        @keyframes mycolor {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .pic {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 5px;
+            left: 5px;
+            border-radius: 50%;
+            background-image: url("./imgs/music_picture.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-origin: content-box;
+            animation-name: mycolor;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        
+        .pic_in1 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 160px;
+            left: 160px;
+            border: 1px solid rgb(122, 122, 122);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .pic_in2 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 25px;
+            left: 25px;
+            border: 1px solid rgb(122, 122, 122);
+            border-radius: 50%;
+            background: rgb(217, 235, 252);
+        }
+        
+        .control_bar {
+            position: absolute;
+            top: 510px;
+            left: 50px;
+            width: 500px;
+            height: 100px;
+        }
+        
+        #play_btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-image: url("./imgs/logo.jpg");
+            background-position: -235px 0px;
+            background-size: 400px;
+            position: absolute;
+            top: 15px;
+        }
+        
+        .progress_box {
+            width: 330px;
+            height: 5px;
+            background: rgb(185, 185, 185);
+            position: absolute;
+            top: 45px;
+            left: 65px;
+            border-radius: 5px;
+        }
+        
+        #progress_bar {
+            width: 0px;
+            height: 5px;
+            background: rgb(224, 221, 12);
+        }
+        
+        #progress_point {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgb(224, 221, 12);
+            position: absolute;
+            top: -3px;
+            left: 0px;
+        }
+        
+        #current_time {
+            width: 50px;
+            height: 100px;
+            line-height: 94px;
+            position: absolute;
+            left: 400px;
+        }
+        
+        #mute_btn {
+            width: 25px;
+            height: 20px;
+            background-image: url("./imgs/logo.jpg");
+            background-repeat: no-repeat;
+            background-position: -66px 0px;
+            position: absolute;
+            left: 450px;
+            top: 38px;
+        }
+        
+        .download {
+            width: 200px;
+            height: 40px;
+            border-radius: 30px;
+            position: absolute;
+            top: 630px;
+            left: 200px;
+            font-weight: bolder;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            background-image: url("./imgs/logo.jpg");
+            background-repeat: no-repeat;
+            background-position: 0px -48px;
+        }
+        
+        .download_mark {
+            width: 18px;
+            height: 15px;
+            position: absolute;
+            top: 12px;
+            left: 7px;
+            background-image: url("./imgs/logo.jpg");
+            background-repeat: no-repeat;
+        }
+        
+        .people {
+            width: 320px;
+            height: 60px;
+            position: absolute;
+            left: 150px;
+            top: 710px;
+        }
+        
+        .people .photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url("./imgs/mypic.jpg");
+            background-size: cover;
+        }
+        
+        .intro {
+            position: absolute;
+            top: 5px;
+            left: 55px;
+            width: 250px;
+            height: 50px;
+            border-radius: 15px;
+            background: rgb(207, 216, 207);
+        }
+        
+        .intro div:nth-child(1) {
+            margin-left: 20px;
+            line-height: 25px;
+        }
+        
+        .intro div:nth-child(2) {
+            margin-left: 20px;
+            line-height: 25px;
+            padding-left: 30px;
+        }
+        
+        .listen {
+            width: 25px;
+            height: 25px;
+            background-image: url("./imgs/logos.png");
+            background-repeat: no-repeat;
+            background-position: -225px -42px;
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+        }
+        
+        .intro a {
+            position: absolute;
+            top: 30px;
+            left: 180px;
+            text-decoration: none;
+        }
+        
+        .comment_area {
+            margin: 0 auto;
+            width: 1500px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .comment {
+            width: 1000px;
+            height: 350px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .comtitle {
+            width: 1000px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid black;
+        }
+        
+        .comtitle a {
+            margin-left: 20px;
+            margin-right: 20px;
+            color: rgb(114, 114, 250);
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .comment img {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+        }
+        
+        #input_comment {
+            position: absolute;
+            left: 90px;
+            top: 60px;
+        }
+        
+        .smile {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 280px;
+            left: 90px;
+        }
+        
+        .count {
+            position: absolute;
+            top: 280px;
+            left: 630px;
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        #sub {
+            position: absolute;
+            top: 280px;
+            left: 750px;
+            width: 70px;
+            height: 30px;
+            background: rgb(224, 221, 12);
+            border-radius: 10px;
+            border: rgb(224, 221, 12);
+        }
+        
+        .wonderful_comments {
+            width: 1000px;
+            margin: 0 auto;
+            height: 400px;
+        }
+        
+        .comtitle_2 {
+            width: 1000px;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid black;
+        }
+        
+        .btns {
+            position: relative;
+            width: 300px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        
+        .nums {
+            width: 185px;
+            height: 30px;
+            position: absolute;
+            left: 50px;
+            top: 0px;
+            overflow: hidden;
+        }
+        
+        #nums_in {
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            left: 0px;
+        }
+        
+        #nums_in div {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgb(207, 216, 207);
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        #turn_left {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url("./imgs/left_right.jpg");
+            background-repeat: no-repeat;
+            background-size: 60px 50px;
+            background-position: 0px -10px;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        #turn_right {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url("./imgs/left_right.jpg");
+            background-repeat: no-repeat;
+            background-size: 60px 50px;
+            background-position: -30px -10px;
+            position: absolute;
+            top: 0px;
+            left: 260px;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        #pages_out {
+            height: 324px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #pages {
+            position: absolute;
+            top: 0px;
+        }
+        
+        #pages div:nth-last-child(1) {
+            margin: 0 auto;
+            width: 950px;
+            height: 80px;
+            position: relative;
+            border-bottom: 1px dashed #808080;
+            background: rgba(228, 228, 228, 0.5);
+        }
+        
+        #pages div:nth-last-child(2) {
+            margin: 0 auto;
+            width: 950px;
+            height: 80px;
+            position: relative;
+            border-bottom: 1px dashed #808080;
+            background: rgba(228, 228, 228, 0.5);
+        }
+        
+        #pages a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        #page1>div {
+            height: 80px;
+            width: 950px;
+            margin: 0 auto;
+            position: relative;
+            border-bottom: 1px dashed #808080;
+            background: rgba(228, 228, 228, 0.5);
+        }
+        
+        .head {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        
+        .name {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            top: 5px;
+            left: 80px;
+            color: rgb(224, 221, 12);
+        }
+        
+        .date {
+            width: 150px;
+            height: 20px;
+            position: absolute;
+            left: 80px;
+            top: 60px;
+            font-size: 10px;
+        }
+        
+        .speech {
+            width: 800px;
+            height: 40px;
+            position: absolute;
+            top: 30px;
+            left: 80px;
+        }
+        
+        .deleteit {
+            position: absolute;
+            top: 55px;
+            left: 790px;
+        }
+        
+        .share {
+            position: absolute;
+            top: 0px;
+            left: 900px;
+        }
+        
+        .answerit {
+            position: absolute;
+            top: 55px;
+            left: 900px;
+        }
+        
+        .good {
+            width: 50px;
+            height: 30px;
+            position: absolute;
+            top: 55px;
+            left: 835px;
+        }
+        
+        .good_mark {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0px;
+            left: 865px;
+            margin-top: 55px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <img src="./imgs/kuwo_picture.jpg">
+        <div class="nav_first">
+            <a href="">首页</a>
+            <a href="">榜单</a>
+            <a href="">歌手</a>
+            <a href="">下载酷我客户端</a>
+        </div>
+        <div class="nav_second">
+            <div><a href="">美女秀</a></div>
+            <div><a href="">酷我耳机</a></div>
+            <div><a href="">VIP会员</a></div>
+            <div><a href="">听</a></div>
+            <div><a href="">更多服务</a></div>
+            <div><a href="">登录</a></div>
+        </div>
+        <div class="container">
+            <form action="" class="parent">
+                <input type="text" class="search" placeholder="找好听音乐">
+                <input type="submit" value="" name="" id="search_btn" class="btn">
+            </form>
+        </div>
+    </div>
+    <div class="back">
+        <div class="music_body">
+            <div class="music_body_in">
+                <div class="left_body">
+                    <div class="title">别看我只是一只羊</div>
+                    <div class="source_first">
+                        专辑：
+                        <a href="">儿歌大全</a> 歌手：
+                        <a href="">华语群星</a>
+                        <a href="">分享</a>
+                        <img src="./imgs/message_picture.jpg" alt="">
+                        <a href="">评论</a>
+                    </div>
+                    <div class="source_second">
+                        上传时间：2021-06-05 歌曲来源：QQ音乐
+                    </div>
+                    <div class="line"></div>
+                    <div class="lyric_out">
+                        <div class="lyric">
+                            <span>喜羊羊美羊羊懒羊羊沸羊羊</span>
+                            <span>慢羊羊软绵绵红太狼灰太狼</span>
+                            <span>别看我只是一只羊</span>
+                            <span>绿草也为我变的更香</span>
+                            <span>天空因为我变的更蓝</span>
+                            <span>白云也为我变的柔软</span>
+                            <span>别看我只是一只羊</span>
+                            <span>羊儿的聪明难以想像</span>
+                            <span>天再高心情一样奔放</span>
+                            <span>每天都追赶太阳... </span>
+                            <span>有什么难题去牵绊我都不会去心伤</span>
+                            <span>有什么危险在我面前也不会去慌乱</span>
+                            <span>就算有狼群把我追捕也当做游戏一场</span>
+                            <span>在什么时间都爱开心笑容都会飞翔</span>
+                            <span>就算会摔倒站得起来永远不会沮丧</span>
+                            <span>在所有天气拥有叫人大笑的力量</span>
+                            <span>虽然我只是羊… …</span>
+                            <span>喜羊羊美羊羊懒羊羊沸羊羊</span>
+                            <span>慢羊羊软绵绵红太狼灰太狼</span>
+                            <span>别看我只是一只羊</span>
+                            <span>绿草也为我变的更香</span>
+                            <span>天空因为我变的更蓝</span>
+                            <span>白云也为我变的柔软</span>
+                            <span>别看我只是一只羊</span>
+                            <span>羊儿的聪明难以想像</span>
+                            <span>天再高心情一样奔放</span>
+                            <span>每天都追赶太阳... </span>
+                            <span>有什么难题去牵绊我都不会去心伤</span>
+                            <span>有什么危险在我面前也不会去慌乱</span>
+                            <span>就算有狼群把我追捕也当做游戏一场</span>
+                            <span>在什么时间都爱开心笑容都会飞翔</span>
+                            <span>就算会摔倒站得起来永远不会沮丧</span>
+                            <span>在所有天气拥有叫人大笑的力量</span>
+                            <span>虽然我只是羊… …</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_body">
+                    <div class="pic_border">
+                        <div class="pic">
+                            <div class="pic_in1">
+                                <div class="pic_in2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control_bar">
+                        <audio src="./yangyang.mp3" id="mymusic">
+                    您的浏览器不支持Audio
+                </audio>
+                        <div id="play_btn"></div>
+                        <div class="progress_box">
+                            <div id="progress_bar"></div>
+                            <div id="progress_point"></div>
+                        </div>
+                        <div id="current_time">00:00</div>
+                        <div id="mute_btn"></div>
+                    </div>
+                    <div class="download">
+                        <div class="download_mark"></div>
+                        免费下载这首歌
+                    </div>
+                    <div class="people">
+                        <div class="photo"></div>
+                        <div class="intro">
+                            <div>小灰灰——H5班</div>
+                            <div>
+                                <div class="listen"></div>
+                                喜羊羊与灰太狼</div>
+                            <div><a href="">去现场 ></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_area">
+            <div class="comment">
+                <div class="comtitle"><a href="">评论</a> <span id="comcount">2</span>条评论 </div>
+                <img src="./imgs/mypic.jpg" alt="">
+                <textarea name="com" id="input_comment" cols="100" rows="15"></textarea>
+                <div class="smile">😊</div>
+                <div class="count">已输入 <span id="wordnum">0</span>个字</div>
+                <button id="sub">评论</button>
+            </div>
+            <div class="wonderful_comments">
+                <div class="comtitle_2">精彩评论</div>
+                <div id="pages_out">
+                    <div id="pages">
+                        <div id="page1">
+
+                        </div>
+                        <div class="answer_1">
+                            <img src="./imgs/back2.jpg" alt="" class="head">
+                            <span class="name">洋洋啊</span>
+                            <span class="speech">童年的回忆啊</span>
+                            <span class="date">2021-6-5 19:00:00</span>
+                            <span class="good">100 </span>
+                            <img src="./imgs/good.jpg" alt="" class="good_mark">
+                            <a href="" class="share">分享</a>
+                            <a href="" class="answerit">回复</a>
+                        </div>
+                        <div class="answer_2">
+                            <img src="./imgs/pic1.jpg" alt="" class="head">
+                            <span class="name">我爱灰太狼</span>
+                            <span class="speech">好久没看了，还是记忆中的样子</span>
+                            <span class="date">2021-5-24 8:05:42</span>
+                            <span class="good">123 </span>
+                            <img src="./imgs/good.jpg" alt="" class="good_mark">
+                            <a href="" class="share">分享</a>
+                            <a href="" class="answerit">回复</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <div id="turn_left"></div>
+                    <div class="nums">
+                        <div id="nums_in">
+                            <div id="first_page">1</div>
+                        </div>
+                    </div>
+                    <div id="turn_right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var mymusic = document.getElementById("mymusic");
+    var play_btn = document.getElementById("play_btn");
+    var mute_btn = document.getElementById("mute_btn");
+    var progress_bar = document.getElementById("progress_bar");
+    var progress_point = document.getElementById("progress_point");
+    var current_time = document.getElementById("current_time");
+    var turn_left = document.getElementById("turn_left");
+    var turn_right = document.getElementById("turn_right");
+    var nums_in = document.getElementById("nums_in");
+    var sub = document.getElementById("sub");
+    var input_comment = document.getElementById("input_comment");
+    var pages = document.getElementById("pages");
+    var comcount = document.getElementById("comcount");
+    var deleteit = document.getElementById("deleteit");
+    var page1 = document.getElementById("page1");
+    var first_page = document.getElementById("first_page");
+
+    var mark_play = true;
+    var mark_mute = true;
+
+    var nowTime = 0;
+    var minute = 0;
+    var second = 0;
+    var curtime = 0;
+    var now = 0;
+    var pages_height = 0;
+
+    play_btn.onclick = function() {
+        if (mark_play) {
+            mark_play = false;
+
+            //播放音乐，并转换图标
+            mymusic.play();
+            play_btn.style.backgroundPosition = "-300px -70px";
+
+            //进度条移动
+            var total_duration = parseInt(mymusic.duration);
+            var endminute = parseInt(total_duration / 60);
+            var endsecond = total_duration % 60;
+            var fromleft = 0;
+
+            nowTime = setInterval(function() {
+                    second = second + 1;
+                    if (second == 60) {
+                        minute = minute + 1;
+                        second = 0;
+                    }
+                    if (minute < 10) {
+                        min = "0" + minute;
+                    } else {
+                        min = minute;
+                    }
+                    if (second < 10) {
+                        sec = "0" + second;
+                    } else {
+                        sec = second;
+                    }
+                    current_time.innerHTML = min + ":" + sec;
+                    if (minute == endminute && second == endsecond) {
+                        clearInterval(nowTime);
+                        play_btn.style.backgroundPosition = "-235px 0px";
+                    }
+
+                    fromleft = fromleft + 330 / total_duration;
+                    progress_bar.style.width = fromleft + "px";
+                    progress_point.style.left = fromleft + "px";
+                }, 1000)
+                //progress_bar.style.width = 330 * (curtime / total_duration) + "px";
+
+        } else {
+            mymusic.pause();
+            mark_play = true;
+            play_btn.style.backgroundPosition = "-235px 0px";
+            clearInterval(nowTime);
+        }
+    }
+    mute_btn.onclick = function() {
+        if (mark_mute) {
+            mymusic.muted = "true"
+            mark_mute = false;
+            mute_btn.style.backgroundPosition = "-41px 0px";
+        } else {
+            mymusic.muted = "";
+            mark_mute = true;
+            mute_btn.style.backgroundPosition = "-66px 0px";
+        }
+    }
+    turn_right.onclick = function() {
+        nums_in.style.left = "-100px";
+    }
+    turn_left.onclick = function() {
+        nums_in.style.left = "0px";
+    }
+
+    for (var i = 0; i < nums_in.length; i++) {
+        nums_in.children[i].onclick = function() {
+            pages.style.top = -i * 324 + "px";
+        }
+    }
+
+    function saveNote(noteContent) {
+        var noteList = localStorage['noteList'];
+        if (noteList == "" || noteList == null || noteList == undefined) {
+            localStorage["noteList"] = "[]";
+        }
+        noteList = JSON.parse(localStorage["noteList"]);
+        var noteObj = {
+            noteId: noteList.length,
+            thisTime: now,
+            numlikes: 0,
+            noteContent
+        }
+        noteList.push(noteObj);
+        localStorage["noteList"] = JSON.stringify(noteList);
+    }
+
+    function addGoods() {
+        var noteId = this.getAttribute("spanid");
+        var noteList = localStorage["noteList"];
+        noteList = JSON.parse(noteList);
+        for (var i = 0; i < noteList.length; i++) {
+            if (noteId == noteList[i]["noteId"]) {
+                noteList[i]["numlikes"] = noteList[i]["numlikes"] + 1;
+                //.innerHTML = noteList[i]["numlikes"];
+            }
+        }
+        noteList = JSON.stringify(noteList);
+        localStorage["noteList"] = noteList;
+        getNotes();
+    }
+
+    function getNotes() {
+        page1.innerHTML = "";
+        var noteList = localStorage["noteList"];
+        noteList = JSON.parse(noteList);
+        for (var i = 0; i < noteList.length; i++) {
+            var divNode = document.createElement("div");
+            divNode.setAttribute("noteid", noteList[i]['noteId']);
+            divNode.innerHTML =
+                '<img src="./imgs/mypic.jpg" alt="" class="head">' +
+                '<span class="name">一只羊</span>' +
+                '<span class="speech">' + noteList[i]["noteContent"] + '</span>' +
+                '<span class="date">' + noteList[i]["thisTime"] + '</span>' +
+                //'<span class="good">0</span>' +
+
+                '<img src="./imgs/good.jpg" alt="" class="good_mark">' +
+                '<a href="" class="share">分享</a>' +
+                '<a href="" class="answerit">回复</a>';
+            var adel = document.createElement("a");
+            adel.innerHTML = "删除";
+            adel.setAttribute("delid", noteList[i]['noteId']);
+            adel.setAttribute("class", "deleteit");
+            adel.setAttribute("href", "");
+            divNode.appendChild(adel);
+            var spa = document.createElement("span");
+            spa.innerHTML = noteList[i]["numlikes"];
+            spa.setAttribute("class", "good");
+            spa.setAttribute("spanid", noteList[i]['noteId']);
+            divNode.appendChild(spa);
+            page1.insertBefore(divNode, page1.children[0]);
+            adel.onclick = delNote;
+            spa.onclick = addGoods;
+        }
+        comcount.innerHTML = noteList.length + 2;
+        pages_height = (noteList.length + 2) * 81;
+    }
+
+    function delNote() {
+        console.log(this);
+        var noteId = this.getAttribute("delid");
+        console.log(noteId);
+        var noteList = localStorage["noteList"];
+        noteList = JSON.parse(noteList);
+        for (var i = 0; i < noteList.length; i++) {
+            if (noteId == noteList[i]["noteId"]) {
+                noteList.splice(i, 1);
+            }
+        }
+
+        noteList = JSON.stringify(noteList);
+        localStorage["noteList"] = noteList;
+        getNotes();
+    }
+
+    /*格式化时间*/
+    Date.prototype.Format = function(fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份 
+            "d+": this.getDate(), //日 
+            "h+": this.getHours(), //小时 
+            "m+": this.getMinutes(), //分 
+            "s+": this.getSeconds(), //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    var num = 1;
+
+    function createPages_all(pages_height) {
+        for (var i = 1; i < 100; i++) {
+            if (pages_height >= i * 324 && pages_height < (i + 1) * 324) {
+                for (var j = 1; j <= i; j++) {
+                    var div = document.createElement("div");
+                    div.setAttribute("id", "pages" + (j + 1));
+                    div.setAttribute("onclick", "(function (){pages.style.top=-" + j + "*324+'px'})()");
+                    div.innerHTML = j + 1;
+                    nums_in.appendChild(div);
+                }
+            }
+        }
+    }
+
+    function createPages_one(pages_height) {
+        for (var i = 1; i < 10; i++) {
+            if (pages_height == i * 324) {
+                var div = document.createElement("div");
+                div.setAttribute("id", "pages" + i);
+                div.innerHTML = i + 1;
+                nums_in.appendChild(div);
+                div.onclick = function() {
+                    pages.style.top = -324 * i + "px";
+                }
+                break;
+            }
+        }
+    }
+
+    sub.onclick = function() {
+        now = (new Date()).Format("yyyy-MM-dd hh:mm:ss")
+        var noteContent = input_comment.value;
+        if (noteContent == "") {
+            alert("评论不能为空！");
+        } else {
+            //保存
+            saveNote(noteContent);
+            //添加
+            getNotes();
+            createPages_one(pages_height);
+        }
+        input_comment.value = "";
+        wordnum.innerHTML = "0";
+    }
+
+    /*评论字数变化*/
+    input_comment.oninput = function() {
+        var len = input_comment.value.length;
+        wordnum.innerHTML = len;
+    }
+
+    window.onload = function() {
+        getNotes();
+        createPages_all(pages_height);
+    }
+    first_page.onclick = function() {
+        pages.style.top = "0px";
+    }
+</script>
+
+</html>
